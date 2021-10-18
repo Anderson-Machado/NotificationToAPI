@@ -4,7 +4,10 @@
     <TargetFramework>net5.0</TargetFramework>
     <Authors>Anderson Machado</Authors>
     <Company>Anderson Machado</Company>
-    <Description>Pacote que auxilia o retorno de erro no formato de problem detail utilizando do FluentValidation.</Description>
+    <Description>Pacote que auxilia o retorno de erro no formato de problemdetail utilizando o FluentValidation.</Description>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <Version>1.0.1</Version>
+    <PackageTags>ProblemDetails</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

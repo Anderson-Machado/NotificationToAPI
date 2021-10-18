@@ -5,7 +5,7 @@ Este pacote tem como finalidade de auxiliar o BadRequest baseado na validação 
 ## Requisito para uso
 Para o uso adequado é necessário ter o FluentValidation instalado em seu projeto.
 
-## Emplo de utilização
+## Exemplo de utilização
 É necessário efetuar o registro na Startup.cs do projeto conforme exemplo abaixo. 
 
 ```
@@ -72,12 +72,12 @@ public class MinhaController : ControllerBase
 
         [HttpPost]
         [ProducesResponseType(typeof(MinhaClasse), StatusCodes.Status200OK)]
-        public async Task<ActionResult<MinhaClasse>> Banco(MinhaClasse entidade)
+        public async Task<IActionResult> Create(MinhaClasse entidade)
         {
             _meuServico.Handle(endidade); 
             if(__apiNotification.HasNotifications())
             {
-             return BadRequest(_apiNotification.GetProblemDetail(_httpContext));
+             return _apiNotification.GetProblemDetail(_httpContext);
             }
             return Created("", banco);
 

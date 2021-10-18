@@ -23,7 +23,7 @@ namespace NotificationToAPI.Notification
             return _failuresBusiness;
         }
 
-        public object GetProblemDetail(IHttpContextAccessor httpContext)
+        public IActionResult GetProblemDetail(IHttpContextAccessor httpContext)
         {
             httpContext.HttpContext.Request.Headers.TryGetValue("TraceId", out var traceId);
             var errorsModelState = _failuresBusiness.Errors.GroupBy(x => x.PropertyName)
@@ -41,11 +41,11 @@ namespace NotificationToAPI.Notification
                 TraceId = traceId.ToString()
             };
 
-            var result = new BadRequestObjectResult(validaTion);
-            return result.Value;
+            return new BadRequestObjectResult(validaTion);
+            
         }
 
-        public bool HasNotifications() => _failuresBusiness.Errors.Count > 0;
+        public  bool HasNotifications() => _failuresBusiness.Errors.Count > 0;
 
     }
 }
